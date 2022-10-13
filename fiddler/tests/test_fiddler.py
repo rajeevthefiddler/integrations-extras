@@ -26,6 +26,6 @@ def test_metric_collection(dd_run_check, aggregator, e2e_instance):
     check = FiddlerCheck('fiddler', {}, [e2e_instance])
     dd_run_check(check)
 
-    # aggregator.assert_service_check('fiddler.can_connect', FiddlerCheck.OK)
+    aggregator.assert_service_check('fiddler.can_connect', FiddlerCheck.OK)
     aggregator.assert_all_metrics_covered()
     aggregator.assert_metrics_using_metadata(get_metadata_metrics())
